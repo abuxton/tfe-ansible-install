@@ -16,6 +16,11 @@ Only the following operating systems are supported. If you wish to use one not l
 - RHEL [7]
 - RHEL [8]
 
+## Terraform
+
+A small sample of terraform code is provided to provision infrastructure for testing.
+see `./terraform` and it's own examples for usage.
+
 ## How to Use
 
 `install.yaml` is the main entry point for installing TFE with Ansible. It calls the specific roles you enable depending on what you are trying to accomplish. You can enable and disable roles at will by editing the variables at the top of `group_vars/tfe.yaml`. This saves time when troubleshooting and running the playbook over and over.
@@ -59,11 +64,11 @@ A variable named `files_on_system` determines if files will be copied from the c
 
 ## Setup - Populate Input Variables
 
-Go through the available input variables in `group_vars/tfe.yaml` and configure them to match your desired install. 
+Go through the available input variables in `group_vars/tfe.yaml` and configure them to match your desired install.
 
 ## Running the Playbook - Standalone TFE server
 
-Once you are ready to install TFE run the command `ansible-playbook -i hosts.yaml install.yaml`. Time to complete will vary based on type of install (airgap vs online), network connections, and compute resources. Airgap installs take the longest if you have to copy the .airgap bundle to the remote host. 
+Once you are ready to install TFE run the command `ansible-playbook -i hosts.yaml install.yaml`. Time to complete will vary based on type of install (airgap vs online), network connections, and compute resources. Airgap installs take the longest if you have to copy the .airgap bundle to the remote host.
 
 Once the playbook is complete, Ansible should return a debug message similar to:
 
@@ -73,7 +78,7 @@ Once the playbook is complete, Ansible should return a debug message similar to:
             "  http://172.30.0.4:8800"
 ```
 
-You should now be able to access the replicated admin console at port 8800, but TFE will take another 10 to 15 minutes to finish the automated install. You can watch this from the dashboard. 
+You should now be able to access the replicated admin console at port 8800, but TFE will take another 10 to 15 minutes to finish the automated install. You can watch this from the dashboard.
 
 ## Active/Active
 
